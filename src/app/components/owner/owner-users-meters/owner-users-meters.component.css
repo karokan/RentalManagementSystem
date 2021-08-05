@@ -1,0 +1,45 @@
+.example-action-buttons {
+  padding-bottom: 20px;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+.card-control {
+  padding: 30px;
+}
+.center-content {
+  max-width: 80%;
+  margin: auto;
+  margin-top: 2%;
+}
+
+.example-header-image {
+  background-image: url("https://c4.wallpaperflare.com/wallpaper/973/146/396/agreement-business-document-documents-wallpaper-preview.jpg");
+  background-size: cover;
+}
+mat-card-title {
+  text-align: left;
+}
+.button-controll {
+  justify-content: center;
+  padding: 6px 16px;
+  margin-left: 25px;
+  display: table-cell;
+  font-size: 14px;
+  height: 50px;
+  background-color: rgba(245, 237, 237, 0.788);
+}
+span {
+  font-weight: 600;
+}

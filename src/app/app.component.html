@@ -1,0 +1,20 @@
+<!-- <app-main-nav> </app-main-nav>  OBSOLETE!!!! -->
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <app-sidenav-list
+      (closeSideNavigation)="sidenav.close()"
+    ></app-sidenav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-header (SideNavigationToggle)="sidenav.toggle()"></app-header>
+    <app-navtabs></app-navtabs>
+
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- <h1>Hello</h1> -->

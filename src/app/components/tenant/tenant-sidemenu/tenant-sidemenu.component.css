@@ -1,0 +1,39 @@
+.icon-padding {
+  margin-left: 15px;
+}
+
+.mat-list {
+  text-align: center;
+  padding-top: 60px;
+}
+
+.mat-item-hover:hover {
+  opacity: 0.5;
+  background-color: rgb(90, 48, 90);
+}
+
+.list-position {
+  bottom: 0;
+  position: absolute;
+  width: 88%;
+}
+
+:host /deep/ .mat-list-item {
+  color: oldlace;
+}
+
+.mat-drawer-content {
+  overflow: hidden;
+}
+
+.side-nav-link {
+  overflow: hidden;
+}
+
+mat-divider {
+  padding: 10px;
+  border-width: 0px;
+}
+mat-icon {
+  margin-right: 7px;
+}

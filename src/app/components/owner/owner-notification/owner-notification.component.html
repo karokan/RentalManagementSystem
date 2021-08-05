@@ -1,0 +1,36 @@
+<div class="center-content">
+  <mat-card class="card-control">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Zgłoszenia</mat-card-title>
+      <mat-card-subtitle> &nbsp; </mat-card-subtitle>
+    </mat-card-header>
+    <mat-accordion
+      class="example-headers-align"
+      multi
+      *ngIf="agreements.length > 0"
+    >
+      <div *ngFor="let agreement of agreements">
+        <mat-expansion-panel
+          *ngFor="let noti of agreement.tenantId.notifications"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title
+              >Tytuł zgłoszenia: &nbsp;
+              <strong> {{ noti.title }} </strong></mat-panel-title
+            >
+            <mat-panel-description>
+              Najemca: {{ agreement.tenantId.email }}
+              <mat-icon>home</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p class="content-list">Opis zgłoszenia: {{ noti.content }}</p>
+          <mat-action-row>
+            <!-- <button mat-button color="warn" (click)="onDelete()">USUŃ</button> -->
+          </mat-action-row>
+        </mat-expansion-panel>
+      </div>
+    </mat-accordion>
+    <p class="mat-body-1" *ngIf="agreements.length <= 0">Brak zgłoszeń</p>
+  </mat-card>
+</div>

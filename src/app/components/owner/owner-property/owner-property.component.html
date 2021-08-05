@@ -1,0 +1,163 @@
+<button
+  mat-button
+  class="button-controll"
+  [routerLink]="['../' + link, 'propertyList']"
+>
+  <mat-icon>arrow_back</mat-icon> Nieruchomości
+</button>
+
+<form (submit)="onSaveProperty(propertyForm)" #propertyForm="ngForm">
+  <mat-grid-list cols="2" rowHeight="600px" rowWidth>
+    <mat-grid-tile>
+      <div class="controle-container">
+        <mat-form-field class="example-full-width">
+          <mat-label>Adres</mat-label>
+          <input
+            matInput
+            required
+            [ngModel]="property?.address"
+            type="text"
+            name="address"
+            placeholder="Wpisz adres"
+            value=""
+            #address="ngModel"
+          />
+          <mat-error *ngIf="address.invalid">Wpisz adres </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Miasto</mat-label>
+          <input
+            matInput
+            required
+            [ngModel]="property?.city"
+            type="text"
+            name="city"
+            placeholder="Wpisz miasto"
+            value=""
+            #city="ngModel"
+          />
+          <mat-error *ngIf="city.invalid">Wpisz miasto</mat-error>
+        </mat-form-field>
+
+        <div class="code-control">
+          <div>
+            <mat-form-field class="example-medium-width">
+              <mat-label>Kod pocztowy</mat-label>
+              <input
+                matInput
+                required
+                [ngModel]="property?.postalCode"
+                type="text"
+                name="postalCode"
+                placeholder="Kod pocztowy"
+                value=""
+                #postalCode="ngModel"
+              />
+              <mat-error *ngIf="postalCode.invalid"
+                >Wpisz kod pocztowy
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field class="example-medium-width">
+              <mat-label>Metraż lokalu (m2)</mat-label>
+              <input
+                matInput
+                required
+                [ngModel]="property?.apartmentSize"
+                type="number"
+                name="apartmentSize"
+                placeholder="Metraż lokalu"
+                value=""
+                #apartmentSize="ngModel"
+              />
+              <mat-error *ngIf="apartmentSize.invalid"
+                >Wpisz metraż lokalu
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field class="example-medium-width">
+              <mat-label>Opiekun nieruchomości</mat-label>
+              <input
+                matInput
+                required
+                [ngModel]="property?.propertyManger"
+                type="text"
+                name="propertyManger"
+                placeholder="Opiekun nieruchomości"
+                value=""
+                #propertyManger="ngModel"
+              />
+              <mat-error *ngIf="propertyManger.invalid"
+                >Wpisz opiekuna nieruchomości
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field class="example-medium-width">
+              <mat-label>Telefon do opiekuna nieruchomości</mat-label>
+              <input
+                matInput
+                required
+                [ngModel]="property?.managerPhoneNumber"
+                type="number"
+                name="managerPhoneNumber"
+                placeholder="Telefon do opiekuna nieruchomości"
+                value=""
+                #managerPhoneNumber="ngModel"
+              />
+              <mat-error *ngIf="managerPhoneNumber.invalid"
+                >Wpisz telefon opiekuna nieruchomości
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field class="example-medium-width">
+              <mat-label>Kod domofonu</mat-label>
+              <input
+                matInput
+                [ngModel]="property?.houseCode"
+                type="number"
+                name="houseCode"
+                placeholder="Kod domofonu (opcjonalnie)"
+                value=""
+                #houseCode="ngModel"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <div>
+        <mat-form-field class="example-full-width">
+          <mat-label> Numer Konta dla nieruchomości </mat-label>
+          <input
+            matInput
+            [ngModel]="property?.bankAccountNumber"
+            required
+            type="number"
+            name="bankAccountNumber"
+            placeholder="Numer Konta dla nieruchomości"
+            value=""
+            #bankAccountNumber="ngModel"
+          />
+          <mat-error *ngIf="bankAccountNumber.invalid"
+            >Wpisz Numer Konta
+          </mat-error>
+        </mat-form-field>
+
+        <div class="button-container">
+          <button class="button-save" mat-raised-button>Zapisz</button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>

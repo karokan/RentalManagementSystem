@@ -1,0 +1,71 @@
+<button mat-button class="button-controll" routerLink="../property">
+  Dodaj nieruchomość
+</button>
+<div class="center-content">
+  <mat-card class="card-control">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Nieruchomości</mat-card-title>
+      <mat-card-subtitle>
+        <button mat-button (click)="accordion.openAll()">Rozwiń</button>
+        <button mat-button (click)="accordion.closeAll()">Zwiń</button>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-accordion
+      class="example-headers-align"
+      multi
+      *ngIf="properties.length > 0"
+    >
+      <mat-expansion-panel *ngFor="let property of properties">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <span> {{ property.address }}</span></mat-panel-title
+          >
+          <mat-panel-description>
+            *
+            <mat-icon>home</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p class="content-list">
+          <span class="span-cont"> Miasto: </span>{{ property.city }}
+        </p>
+        <p class="content-list">
+          <span class="span-cont"> Kod pocztowy: </span
+          >{{ property.postalCode }}
+        </p>
+        <p class="content-list">
+          <span class="span-cont"> Metraż lokalu: </span
+          >{{ property.apartmentSize }}
+        </p>
+        <p class="content-list">
+          <span class="span-cont"> Opiekun nieruchomości: </span
+          >{{ property.propertyManger }}
+        </p>
+        <p class="content-list">
+          <span class="span-cont"> Telefon: </span
+          >{{ property.managerPhoneNumber }}
+        </p>
+        <p class="content-list">
+          <span class="span-cont"> Numer konta: </span
+          >{{ property.bankAccountNumber }}
+        </p>
+        <p class="content-list">
+          <span class="span-cont"> Kod domofonu: </span>{{ property.houseCode }}
+        </p>
+        <mat-action-row>
+          <a
+            mat-button
+            color="primary"
+            [routerLink]="['../editProperty', property.id]"
+            >EDYTUJ</a
+          >
+          <!-- <button mat-button color="primary">EDYTUJ</button> -->
+          <button mat-button color="warn" (click)="onDelete(property.id)">
+            USUŃ
+          </button>
+        </mat-action-row>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <p class="mat-body-1" *ngIf="properties.length <= 0">Brak nieruchomości</p>
+  </mat-card>
+</div>

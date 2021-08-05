@@ -1,0 +1,11 @@
+<p>benefits works!</p>
+<h2 *ngIf="userIsAuthenticated">
+  Authenticated controlled, user is authenticated
+</h2>
+<h3 *ngIf="!userIsAuthenticated">
+  Authenticated controlled, user is not authenticated
+</h3>
+<p>{{ userIsAuthenticated }}</p>
+<div *ngIf="userIsAuthenticated">
+  <button (click)="checkAuth()">CheckAuth</button>
+</div>

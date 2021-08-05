@@ -1,0 +1,135 @@
+<h4 class="email-container">
+  <strong> Email: </strong>{{ tenantData?.email }}
+</h4>
+<br />
+<form (submit)="onSaveInfo(infoForm)" #infoForm="ngForm">
+  <mat-grid-list cols="2" rowHeight="600px" rowWidth>
+    <mat-grid-tile>
+      <div class="controle-container">
+        <div>
+          <mat-form-field class="example-medium-width">
+            <mat-label>Imie</mat-label>
+            <input
+              matInput
+              [ngModel]="tenantData?.name"
+              type="text"
+              name="name"
+              placeholder="Imie"
+              value=""
+              #name="ngModel"
+            />
+            <mat-error *ngIf="name.invalid">Wpisz imie </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field class="example-medium-width">
+            <mat-label>Nazwisko</mat-label>
+            <input
+              matInput
+              [ngModel]="tenantData?.lastName"
+              type="text"
+              name="lastName"
+              placeholder="Nazwisko"
+              value=""
+              #lastName="ngModel"
+            />
+            <mat-error *ngIf="lastName.invalid">Wpisz nazwisko </mat-error>
+          </mat-form-field>
+        </div>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Adres</mat-label>
+          <input
+            matInput
+            [ngModel]="tenantData?.address"
+            type="text"
+            name="address"
+            placeholder="Wpisz adres"
+            value=""
+            #address="ngModel"
+          />
+          <mat-error *ngIf="address.invalid">Wpisz adres </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Miasto</mat-label>
+          <input
+            matInput
+            [ngModel]="tenantData?.city"
+            type="text"
+            name="city"
+            placeholder="Wpisz miasto"
+            value=""
+            #city="ngModel"
+          />
+          <mat-error *ngIf="city.invalid">Wpisz miasto</mat-error>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <div>
+        <div class="code-control">
+          <div>
+            <mat-form-field class="example-medium-width">
+              <mat-label>Seria dowodu osobistego</mat-label>
+              <input
+                matInput
+                [ngModel]="tenantData?.IDseries"
+                type="text"
+                name="IDseries"
+                placeholder="Seria dowodu osobistego"
+                value=""
+                #IDseries="ngModel"
+              />
+              <mat-error *ngIf="IDseries.invalid"
+                >Wpisz kod pocztowy
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field class="example-medium-width">
+              <mat-label>Numer dowodu osobistego</mat-label>
+              <input
+                matInput
+                [ngModel]="tenantData?.IDnumber"
+                type="number"
+                name="IDnumber"
+                placeholder="Numer dowodu osobistego"
+                value=""
+                #IDnumber="ngModel"
+              />
+              <mat-error *ngIf="IDnumber.invalid"
+                >Wpisz opiekuna nieruchomości
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field class="example-medium-width">
+              <mat-label>Telefon</mat-label>
+              <input
+                matInput
+                [ngModel]="tenantData?.phoneNumber"
+                type="number"
+                name="phoneNumber"
+                placeholder="Telefon do opiekuna nieruchomości"
+                value=""
+                #phoneNumber="ngModel"
+              />
+              <mat-error *ngIf="phoneNumber.invalid"
+                >Wpisz telefon opiekuna nieruchomości
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="button-container">
+          <button class="button-save" mat-raised-button>Zapisz</button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>

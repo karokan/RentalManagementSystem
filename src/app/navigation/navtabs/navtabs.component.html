@@ -1,0 +1,48 @@
+<div class="navtabs-container">
+  <nav mat-tab-nav-bar fxFlex fxLayout mat-align-tabs="center">
+    <a
+      mat-tab-link
+      routerLink=""
+      routerLinkActive
+      [routerLinkActiveOptions]="{ exact: true }"
+      #home="routerLinkActive"
+      [active]="home.isActive"
+    >
+      Strona główna
+    </a>
+    <a
+      mat-tab-link
+      routerLink="/functionalities"
+      routerLinkActive
+      #functionalities="routerLinkActive"
+      [active]="functionalities.isActive"
+    >
+      Funkcjonalności
+    </a>
+    <a
+      mat-tab-link
+      routerLink="/benefits"
+      routerLinkActive
+      #benefits="routerLinkActive"
+      [active]="benefits.isActive"
+    >
+      Korzyści
+    </a>
+
+    <a
+      *ngIf="userIsAuthenticated"
+      mat-align-tab
+      mat-tab-link
+      routerLink="/tenant"
+      routerLinkActive
+      #tenantPanel="routerLinkActive"
+      [active]="tenantPanel.isActive"
+    >
+      Panel
+    </a>
+
+    <button *ngIf="userIsAuthenticated" (click)="onLogout()" mat-button>
+      Logout
+    </button>
+  </nav>
+</div>

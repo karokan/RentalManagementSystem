@@ -1,0 +1,49 @@
+<div class="center-content">
+  <mat-card class="card-control">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Najemcy</mat-card-title>
+      <mat-card-subtitle> &nbsp; </mat-card-subtitle>
+    </mat-card-header>
+    <mat-accordion
+      class="example-headers-align"
+      multi
+      *ngIf="agreements.length > 0"
+    >
+      <div *ngFor="let agreement of agreements">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title
+              >Najemca: &nbsp;
+              <strong> {{ agreement.tenantId.email }} </strong></mat-panel-title
+            >
+            <mat-panel-description class="font-description">
+              Dane najemcy
+              <mat-icon>face</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p class="content-list">
+            <span>Miasto najmowanego mieszkania: </span>
+            {{ agreement.propertyId.city }}
+          </p>
+          <p class="content-list">
+            <span>Dokłady adress: </span> {{ agreement.propertyId.address }}
+          </p>
+          <p class="content-list">
+            <span>Kod pocztowy: </span> {{ agreement.propertyId.postalCode }}
+          </p>
+          <p class="content-list">
+            <span>Ilość zgłoszeń najemcy: </span>
+            {{ agreement.tenantId.notifications?.length }}
+          </p>
+
+          <p class="content-list">
+            <span>Okres najmu: </span>
+            {{ agreement.dateStart }} - {{ agreement.dateEnd }}
+          </p>
+        </mat-expansion-panel>
+      </div>
+    </mat-accordion>
+    <p class="mat-body-1" *ngIf="agreements.length <= 0">Brak zgłoszeń</p>
+  </mat-card>
+</div>

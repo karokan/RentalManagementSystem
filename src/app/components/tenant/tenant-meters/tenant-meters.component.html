@@ -1,0 +1,111 @@
+<div class="center-content-login">
+  <mat-card
+    [class.mat-elevation-z2]="!isActive"
+    [class.mat-elevation-z8]="isActive"
+    class="example-card"
+  >
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Stan liczników</mat-card-title>
+      <mat-card-subtitle>Dodaj lub sprawdź stan liczników</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-tab-group mat-stretch-tabs>
+        <mat-tab class="mat-tab-labels" label="Dodaj stan licznika">
+          <div class="main-div">
+            <mat-card>
+              <form [formGroup]="form" (submit)="onAddMeterPicture()">
+                <button
+                  mat-stroked-button
+                  type="button"
+                  (click)="filePicker.click()"
+                >
+                  Dodaj zdjęcie
+                </button>
+
+                <mat-form-field class="meter-form-field">
+                  <mat-label>Stan licznika</mat-label>
+                  <textarea
+                    matTextareaAutosize
+                    matInput
+                    [formControlName]="'meter'"
+                    type="number"
+                    name="meter"
+                  ></textarea>
+                  <mat-error *ngIf="form.get('meter').invalid"
+                    >Wpisz stan licznika
+                  </mat-error>
+                </mat-form-field>
+
+                <input
+                  type="file"
+                  #filePicker
+                  (change)="onImagePicked($event)"
+                />
+                <div
+                  class="image-preview"
+                  *ngIf="imagePreview !== '' && imagePreview"
+                >
+                  <img [src]="imagePreview" [alt]="form.value.content" />
+                </div>
+                <mat-form-field>
+                  <mat-label>Opis</mat-label>
+                  <textarea
+                    matTextareaAutosize
+                    matAutosizeMinRows="2"
+                    matAutosizeMaxRows="10"
+                    matInput
+                    [formControlName]="'content'"
+                    type="text"
+                    name="content"
+                  ></textarea>
+                  <mat-error *ngIf="form.get('content').invalid"
+                    >Dodaj opis
+                  </mat-error>
+                </mat-form-field>
+                <mat-card-actions>
+                  <button type="submit" mat-raised-button color="accent">
+                    Zapisz stan licznika
+                  </button>
+                </mat-card-actions>
+              </form>
+            </mat-card>
+          </div>
+        </mat-tab>
+        <mat-tab label="Lista liczników">
+          <mat-accordion
+            multi="true"
+            class="list-container"
+            *ngIf="meters.length > 0"
+          >
+            <mat-expansion-panel *ngFor="let meter of meters">
+              <mat-expansion-panel-header>
+                <mat-panel-title> <span>Stan licznika </span> </mat-panel-title>
+                <mat-panel-description>
+                  {{ meter.createdAt | date: "dd/MM/yyyy hh:mm" }}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <p class="content-list">
+                <span>Licznik: </span> {{ meter.meter }}
+              </p>
+
+              <p class="content-list">
+                <span>Opis: </span> {{ meter.content }}
+              </p>
+              <div class="post-image">
+                <img [src]="meter?.imagePath" />
+                <img [src]="meter?.meterImage" />
+              </div>
+              <mat-action-row>
+                <!-- <button mat-button color="warn" (click)="onDelete()">
+                  USUŃ
+                </button> -->
+              </mat-action-row>
+            </mat-expansion-panel>
+          </mat-accordion>
+          <p class="mat-body-1" *ngIf="meters.length <= 0">Brak liczników</p>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,63 @@
+<button mat-button class="button-controll" routerLink="../agreement">
+  Stwórz umowę
+</button>
+
+<div class="center-content">
+  <mat-card class="card-control">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Umowy</mat-card-title>
+      <mat-card-subtitle> &nbsp; </mat-card-subtitle>
+    </mat-card-header>
+    <mat-accordion
+      class="example-headers-align"
+      multi
+      *ngIf="agreements.length > 0"
+    >
+      <mat-expansion-panel *ngFor="let agreement of agreements">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <span>Najemca: &nbsp; </span>
+            {{ agreement.tenantId.email }}</mat-panel-title
+          >
+          <mat-panel-description>
+            Umowa
+            <mat-icon>gavel</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p class="content-list">
+          <span>Umowa od:</span> {{ agreement.dateStart }}
+        </p>
+        <p class="content-list">
+          <span>Umowa do:</span> {{ agreement.dateEnd }}
+        </p>
+        <p class="content-list">
+          <span>Adres nieruchomości:</span>
+          {{ agreement.propertyId.address }} |&nbsp; <span>Miasto:</span>
+          {{ agreement.propertyId.city }} |&nbsp; <span> Kod pocztowy:</span>
+          {{ agreement.propertyId.postalCode }}
+        </p>
+        <p class="content-list" contenteditable="true" (click)="showButton()">
+          <span>Cena najmu:</span> {{ agreement.rent }} zł
+        </p>
+        <p class="content-list">
+          <span>Zaliczka z media:</span> {{ agreement.media }} zł
+        </p>
+        <p class="content-list">
+          <span>Kaucja:</span> {{ agreement.deposit }} zł
+        </p>
+        <mat-action-row>
+          <a mat-button color="primary" [routerLink]="['../edit', agreement.id]"
+            >EDYTUJ</a
+          >
+          <!-- <a mat-button color="primary" [routerLink]="['../home']">EDYTUJ</a> -->
+
+          <button mat-button color="warn" (click)="onDelete(agreement.id)">
+            USUŃ
+          </button>
+        </mat-action-row>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <p class="mat-body-1" *ngIf="agreements.length <= 0">Brak umów</p>
+  </mat-card>
+</div>

@@ -1,0 +1,34 @@
+<div class="grid-container">
+  <mat-grid-list cols="4" rowHeight="350px">
+    <mat-grid-tile
+      *ngFor="let tile of tiles | async"
+      [colspan]="tile.cols"
+      [rowspan]="tile.rows"
+    >
+      <mat-card
+        class="dashboard-card card-image"
+        [ngStyle]="{ 'background-image': 'url(' + tile.imageUrl + ')' }"
+      >
+        <mat-card-header class="mat-app-background card-title">
+          <mat-card-title>
+            {{ tile.text }}
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-actions
+          fxLayout="column"
+          fxLayout="row"
+          fxLayoutAlign="center center"
+        >
+          <button
+            class="button-class"
+            mat-raised-button
+            [routerLink]="[tile.link]"
+            color="primary"
+          >
+            Start Now
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

@@ -1,0 +1,69 @@
+.header-class {
+  margin-top: 40px;
+  margin-bottom: -70%;
+  text-align: center;
+  font-size: 30px;
+}
+.button-check-class {
+  background-color: rgba(238, 201, 201, 0.747);
+  margin-left: 30px;
+  width: 16%;
+}
+.button-create-class {
+  background-color: rgba(238, 201, 201, 0.747);
+  margin-left: 70px;
+}
+
+.controle-container {
+  width: 100%;
+  padding: 5%;
+}
+div {
+  margin: 0px 40px;
+}
+
+.example-full-width {
+  min-width: 150px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.example-headers-align {
+  /* flex-basis: 0;
+  justify-content: space-between; */
+  /* margin-left: 8px; */
+  width: 50%;
+}
+mat-panel-description {
+  display: flex;
+  justify-content: flex-end;
+}
+mat-checkbox {
+  margin-right: 7px;
+}
+.propertyList-controll {
+  margin-top: 40px;
+}
+
+/* .rangePicker-class-controll {
+  margin-left: -10%;
+} */
+
+.first {
+  width: 70%;
+  height: 300px;
+  position: absolute;
+  border: 1px solid red;
+}
+
+.second {
+  border: 2px solid blue;
+  width: 40%;
+  height: 200px;
+  position: relative;
+  top: 315px;
+}
+
+.button-controll {
+  margin-bottom: -30%;
+}

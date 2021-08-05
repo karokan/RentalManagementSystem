@@ -1,0 +1,159 @@
+<div class="center-content-login">
+  <mat-card
+    [class.mat-elevation-z2]="!isActive"
+    [class.mat-elevation-z8]="isActive"
+    class="example-card"
+  >
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Login/Register</mat-card-title>
+      <mat-card-subtitle>Management System</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-tab-group mat-stretch-tabs>
+        <mat-tab calss="mat-tab-labels" label="Login">
+          <form
+            (submit)="onLogin(loginForm)"
+            #loginForm="ngForm"
+            class="example-form"
+          >
+            <mat-form-field class="example-full-width">
+              <mat-label>Email </mat-label>
+              <input
+                matInput
+                name="email"
+                email
+                type="email"
+                ngModel
+                placeholder="Email"
+                value=""
+                #emailInput="ngModel"
+                required
+              />
+              <mat-error *ngIf="emailInput.invalid">
+                Please enter a valid email address
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Password</mat-label>
+              <input
+                name="password"
+                type="password"
+                ngModel
+                #passwordInput="ngModel"
+                required
+                password
+                matInput
+                placeholder="Password"
+                value=""
+              />
+              <mat-error *ngIf="passwordInput.invalid">
+                Please enter a valid email address
+              </mat-error>
+            </mat-form-field>
+
+            <br />
+
+            <mat-form-field class="full-width">
+              <mat-label>Select Role</mat-label>
+              <mat-select name="role" ngModel required>
+                <mat-option value="tenant">Tenant</mat-option>
+                <mat-option value="owner">Owner</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <br />
+
+            <button
+              *ngIf="!isloading"
+              type="submit"
+              class="mat-button"
+              mat-raised-button
+            >
+              Log In
+            </button>
+            <mat-spinner *ngIf="isloading"></mat-spinner>
+          </form>
+        </mat-tab>
+        <mat-tab label="Register">
+          <form
+            (submit)="onSignup(signupForm)"
+            #signupForm="ngForm"
+            class="example-form"
+          >
+            <mat-form-field class="example-full-width">
+              <mat-label>Email </mat-label>
+              <input
+                type="email"
+                email
+                name="email"
+                ngModel
+                #emailInput="ngModel"
+                matInput
+                placeholder="Email"
+                value=""
+                required
+              />
+              <mat-error *ngIf="emailInput.invalid">
+                Please enter a valid email address
+              </mat-error>
+            </mat-form-field>
+
+            <br />
+
+            <mat-form-field class="full-width">
+              <mat-label>Select Role</mat-label>
+              <mat-select name="role" ngModel required>
+                <mat-option value="tenant">Tenant</mat-option>
+                <mat-option value="owner">Owner</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <br />
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Password</mat-label>
+              <input
+                type="password"
+                name="password"
+                ngModel
+                #passwordInput="ngModel"
+                matInput
+                placeholder="Password"
+                value=""
+                required
+              />
+              <mat-error *ngIf="passwordInput.invalid">
+                Please enter a valid email address
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Confirm Password</mat-label>
+              <input
+                matInput
+                placeholder="Password"
+                ngModel
+                name="confirmPassword"
+                type="password"
+                required
+                value=""
+              />
+            </mat-form-field>
+
+            <button
+              *ngIf="!isloading"
+              type="submit"
+              class="mat-button"
+              mat-raised-button
+            >
+              Register
+            </button>
+            <mat-spinner *ngIf="isloading"></mat-spinner>
+          </form>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+</div>

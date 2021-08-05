@@ -1,0 +1,59 @@
+<ng-template #noMessages>
+  <div class="no-messages">
+    <img src="../../../../../assets/images/messageIcon.png" />
+    <span class="title">Żadnych wiadomości?</span>
+    <span class="info">Wybierz kontakt i sprawdź lub stwórz nową</span>
+  </div>
+</ng-template>
+
+<div class="main">
+  <div class="user-info">Czat z : {{ messages[0]?.emailContact }}</div>
+  <div
+    class="messages-container"
+    class="messages-container"
+    *ngIf="messages && messages[0]; else noMessages"
+    #scrollMe
+  >
+    <ul>
+      <li
+        *ngFor="let message of messages[0]?.messages"
+        [style.flex-direction]="
+          message.sender === messages[0]?.creator ? 'row-reverse' : 'row'
+        "
+      >
+        <ng-container *ngIf="message.sender !== messages[0]?.creator"
+          ><img
+            src="../../../../../assets/images/contactAvatar.png"
+            width="36px"
+            height="37px"
+        /></ng-container>
+
+        <ng-container *ngIf="message.sender === messages[0]?.creator"
+          ><img
+            src="../../../../../assets/images/personIcon.png"
+            width="30px"
+            height="31px"
+        /></ng-container>
+
+        <span
+          [ngClass]="
+            message.sender === messages[0]?.creator
+              ? 'speech-bubble-own'
+              : 'speech-bubble'
+          "
+        >
+          {{ message.text }}
+        </span>
+      </li>
+    </ul>
+  </div>
+  <div class="input-container">
+    <input
+      placeholder="Type something"
+      #messageInput
+      (keydown.enter)="
+        onSendMessage(messageInput.value); messageInput.value = ''
+      "
+    />
+  </div>
+</div>

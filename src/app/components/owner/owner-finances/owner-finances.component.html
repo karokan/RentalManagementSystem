@@ -1,0 +1,73 @@
+<div class="center-content">
+  <mat-card class="card-control">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Rachunki</mat-card-title>
+      <mat-card-subtitle> &nbsp; </mat-card-subtitle>
+    </mat-card-header>
+    <mat-accordion
+      class="example-headers-align"
+      multi
+      *ngIf="obligations.length > 0"
+    >
+      <mat-expansion-panel
+        *ngFor="let obligation of obligations"
+        [style.background-color]="
+          obligation.ifChecked ? '#00BFFF' : '#E19D9D
+        '
+        "
+      >
+        <mat-expansion-panel-header>
+          <mat-panel-title> <strong> Rachunek </strong></mat-panel-title>
+          <mat-panel-description>
+            Najemca: {{ obligation.tenant }}
+            <mat-icon>paid</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p class="content-list">
+          <span>Najemca: </span> {{ obligation.tenant }}
+        </p>
+        <p class="content-list">
+          <span>Właściciel: </span> {{ obligation.owner }}
+        </p>
+        <p class="content-list">
+          <span> Data powstania: </span>
+          {{ obligation.creationDate | date: "dd/MM/yyyy hh:mm" }}
+        </p>
+        <div *ngIf="obligation.agreement; else no_agreement">
+          <p class="content-list">
+            <span>Czynsz: </span> {{ obligation.agreement.rent }}
+          </p>
+          <p class="content-list">
+            <span>Media: </span> {{ obligation.agreement.media }}
+          </p>
+        </div>
+        <ng-template #no_agreement> <span> Umowa usunięta </span> </ng-template>
+
+        <p class="content-list">
+          <span>Kwota do zapłaty: </span> {{ obligation.amount }}
+        </p>
+        <p
+          class="content-list"
+          *ngIf="obligation.ifChecked; else Niepotwierdzone"
+        >
+          <span>Potwierdzone przez właściciela </span>
+        </p>
+        <ng-template #Niepotwierdzone>
+          <span class="stronger-span"> Niepotwierdzone przez właściciela </span>
+        </ng-template>
+
+        <mat-action-row>
+          <button
+            mat-button
+            color="basic"
+            (click)="check(obligation.id, obligation.ifChecked)"
+          >
+            Potwierdź zapłate
+          </button>
+        </mat-action-row>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <p class="mat-body-1" *ngIf="obligations.length <= 0">Brak rachunków</p>
+  </mat-card>
+</div>

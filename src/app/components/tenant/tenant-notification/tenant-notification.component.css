@@ -1,0 +1,48 @@
+/* .main-div {
+  height: 50vh;
+  width: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.example-header-image {
+  background-image: url("https://projektujdom.pl/wp-content/uploads/2020/10/mlotekmlotkwoi.jpg");
+  background-size: cover;
+}
+.example-card {
+  max-width: 600px;
+}
+
+.center-content-login {
+  text-align: -webkit-center;
+  margin-top: 3%;
+}
+mat-card-title {
+  text-align: left;
+}
+
+/* mat-card {
+  width: 50%;
+  margin: auto;
+}*/
+
+mat-form-field,
+textarea {
+  width: 100%;
+  height: 100%;
+}
+
+/* ############# LIST STYLE ################# */
+
+.list-container {
+  display: block;
+  margin-top: 1rem;
+}
+.content-list {
+  text-align: left;
+}
+
+mat-panel-title {
+  margin-left: 0;
+}

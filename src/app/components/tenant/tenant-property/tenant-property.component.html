@@ -1,0 +1,46 @@
+<div class="center-content">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Wynajmowane mieszkanie</mat-card-title>
+      <mat-card-subtitle>
+        Informacje o wynajmowanym mieszkaniu
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content *ngIf="tenantAgreement !== null">
+      <p>
+        <span>Okres wynajmu: </span> {{ tenantAgreement.dateStart }} -
+        {{ tenantAgreement.dateEnd }}
+      </p>
+      <p><span>Adres: </span> {{ tenantAgreement.propertyId.address }}</p>
+      <p><span>Miasto: </span> {{ tenantAgreement.propertyId.city }}</p>
+      <p>
+        <span>Kod pocztowy: </span> {{ tenantAgreement.propertyId.postalCode }}
+      </p>
+      <p>
+        <span>Metraż lokalu: </span>
+        {{ tenantAgreement.propertyId.apartmentSize }}
+      </p>
+      <p>
+        <span>Opiekun lokalu: </span>
+        {{ tenantAgreement.propertyId.propertyManger }}
+      </p>
+      <p>
+        <span>Telefon: </span>
+        {{ tenantAgreement.propertyId.managerPhoneNumber }}
+      </p>
+      <p><span>Kod domofonu: </span> {{ tenantAgreement.rent }} zł</p>
+      <p>
+        <span>Numer konta do płatności: </span>
+        {{ tenantAgreement.propertyId.bankAccountNumber }}
+      </p>
+      <p><span>Czynsz: </span> {{ tenantAgreement.rent }} zł</p>
+      <p><span>Zaliczka za media: </span> {{ tenantAgreement.media }} zł</p>
+      <p><span>Kaucja: </span> {{ tenantAgreement.deposit }} zł</p>
+    </mat-card-content>
+    <p class="mat-body-1" *ngIf="tenantAgreement === null">
+      Brak wynajmowanych nieruchomości
+    </p>
+  </mat-card>
+</div>

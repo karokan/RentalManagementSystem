@@ -1,0 +1,111 @@
+<div class="main-container">
+  <div class="hero-container">
+    <div class="action-container">
+      <div fxFlex fxLayoutAlign="flex-end">
+        <button
+          class="now-button"
+          mat-stroked-button
+          routerLink="/login"
+          color="primary"
+        >
+          LOG IN
+        </button>
+      </div>
+    </div>
+
+    <div
+      class="header-container"
+      fxLayout="row"
+      fxLayout="column"
+      fxLayoutAlign="center center"
+    >
+      <h2 class="mat-display-1">Rental Management System</h2>
+      <h1 class="mat-display-2">Rent your home management</h1>
+    </div>
+  </div>
+  <div
+    class="manage-container"
+    fxLayout="column"
+    fxLayout="row"
+    fxLayoutAlign="center center"
+  >
+    <h3 class="mat-display-3">Manage</h3>
+  </div>
+
+  <section class="home-section">
+    <div class="home-section-header">
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <div>
+          <h2 class="mat-subheading-2 dark-secondary-text">
+            Twoja nieruchomość pod kontrolą 24/7 ONLINE
+          </h2>
+        </div>
+        <div>
+          <h3 class="mat-subheading-3">Zarządzanie wynajmem fair play</h3>
+        </div>
+
+        <div>
+          <p
+            style="text-align: center"
+            class="mat-body-1"
+            fxFlex.gt-xs="70"
+            fxFlexOffset.gt-xs="15"
+          >
+            Napisany od podstaw, autorski system do obsługi wynajmu jest tym,
+            czego oczekujesz od swojego zarządcy i opiekuna mieszkania. Trudno
+            nam sobie wyobrazić współpracę z właścicielem, bez Internetowego
+            systemu obsługi, dlatego napisaliśmy go tak, aby był szyty na miarę
+            Twoich potrzeb. Z poziomu aplikacji, masz możliwość bieżącego
+            monitorowania sytuacji w Twojej nieruchomości.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="card-section"
+      fxLayout.xs="column"
+      fxFlexLayoutWrap
+      fxLayoutGap="3%"
+      fxLayoutAlign="center center"
+    >
+      <mat-card class="owner-panel" fxFlex="45%" fxFlex.sm="100%">
+        <mat-card-header
+          fxLayout="column"
+          fxLayout="row"
+          fxLayoutAlign="center center"
+        >
+          <h2>Panel Właściciela</h2>
+        </mat-card-header>
+        <mat-card-actions
+          fxLayout="column"
+          fxLayout="row"
+          fxLayoutAlign="center center"
+        >
+          <button mat-raised-button routerLink="/login" color="primary">
+            Start Now
+          </button>
+        </mat-card-actions>
+      </mat-card>
+
+      <mat-card class="tenant-panel" fxFlex="45%" fxFlex.sm="100%">
+        <mat-card-header
+          fxLayout="column"
+          fxLayout="row"
+          fxLayoutAlign="center center"
+        >
+          <h2>Panel Najemcy</h2>
+        </mat-card-header>
+        <mat-card-actions
+          fxLayout="column"
+          fxLayout="row"
+          fxLayoutAlign="center center"
+        >
+          <button mat-raised-button routerLink="/login" color="primary">
+            Start Now
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </section>
+</div>

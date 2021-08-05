@@ -1,0 +1,52 @@
+<!-- NIEUŻYWANE -->
+
+<mat-card class="card">
+  <mat-card-header class="header">
+    <mat-card-title
+      ><i class="fa fa-hospital-o fa-2x center" style="padding-right: 20px"></i
+      >Rental Management System</mat-card-title
+    >
+    <mat-card-title style="padding-left: 155px">Login</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content style="padding-left: 68px">
+    <form class="form" (submit)="onLogin(loginForm)" #loginForm="ngForm">
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Username"
+          name="username"
+          #usernameInput="ngModel"
+          ngModel
+          required
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="full-width">
+        <mat-label>Select Role</mat-label>
+        <mat-select name="role" ngModel required>
+          <mat-option value="admin">Admin</mat-option>
+          <mat-option value="receptionist">Receptionist</mat-option>
+          <mat-option value="doctor">Doctor</mat-option>
+          <mat-option value="laboratorist">Laboratorist</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br />
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Password"
+          type="password"
+          name="password"
+          #passwordInput="ngModel"
+          ngModel
+          required
+        />
+      </mat-form-field>
+      <br />
+      <button class="login-button btn btn-success">
+        <i class="fa fa-sign-in" style="padding-right: 13px"></i>Login
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

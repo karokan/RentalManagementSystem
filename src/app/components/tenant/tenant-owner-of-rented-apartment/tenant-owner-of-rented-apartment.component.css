@@ -1,0 +1,27 @@
+.example-card {
+  max-width: 600px;
+}
+
+.example-header-image {
+  background-image: url("https://static.vecteezy.com/system/resources/previews/000/566/937/non_2x/vector-person-icon.jpg");
+  background-size: cover;
+}
+mat-card-subtitle {
+  font-size: 11px;
+}
+p,
+span {
+  text-align: left;
+}
+mat-card-subtitle {
+  text-align: -webkit-left;
+}
+
+span {
+  font-weight: 600;
+}
+
+.center-content {
+  text-align: -webkit-center;
+  margin-top: 5%;
+}

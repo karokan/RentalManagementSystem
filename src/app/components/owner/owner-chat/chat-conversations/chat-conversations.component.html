@@ -1,0 +1,23 @@
+<div class="main">
+  <div class="contacts-title">Lista kontaktów</div>
+  <ul>
+    <li
+      *ngFor="let conversation of conversations"
+      (click)="onUserSelected(conversation)"
+    >
+      <div class="image-container">
+        <img
+          src="../../../../../assets/images/contactAvatar.png"
+          width="36px"
+          height="37px"
+        />
+      </div>
+      <div class="contacts-info">
+        <span class="status-title">
+          {{ conversation.partnerData?.email }}
+        </span>
+        <!-- <span class="status-text">{{ contact.statusMessage }}</span> -->
+      </div>
+    </li>
+  </ul>
+</div>

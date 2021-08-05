@@ -1,0 +1,24 @@
+.example-card {
+  max-width: 600px;
+}
+
+.example-header-image {
+  background-image: url("https://i.pinimg.com/474x/fc/16/ef/fc16eff6cd8c7ff12538799b8bd8f82e.jpg");
+  background-size: cover;
+}
+mat-card-subtitle {
+  font-size: 11px;
+}
+p,
+span {
+  text-align: left;
+}
+
+span {
+  font-weight: 600;
+}
+
+.center-content {
+  text-align: -webkit-center;
+  margin-top: 1%;
+}

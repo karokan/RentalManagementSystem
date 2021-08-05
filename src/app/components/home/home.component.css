@@ -1,0 +1,191 @@
+.hero-container {
+  background: url(/assets/images/streetHD.jpg) center center no-repeat;
+  background-size: cover;
+  height: calc(100vh-145);
+}
+
+.action-container {
+  padding: 35px 115px;
+}
+
+.now-button {
+  font-size: 18px;
+  /* font-weight: bold; */
+  width: 180px;
+  color: whitesmoke;
+  border: 2px solid whitesmoke;
+  text-transform: uppercase;
+  border-radius: 8px;
+}
+
+.mat-display-1 {
+  font-family: "New Tegomin", serif;
+  font-size: 40px;
+  color: rgb(203, 235, 228);
+  margin: 0;
+}
+
+.mat-display-2 {
+  font-family: "New Tegomin", serif;
+  font-size: 70px;
+  color: rgb(167, 240, 72);
+}
+
+/* .mat-display-3 {
+  font-family: "New Tegomin", serif;
+} */
+
+.mat-subheading-2 {
+  font-family: "Rubik", serif;
+  font-size: 35px;
+}
+
+.header-container {
+  text-align: center;
+  padding: 60px 20px;
+  min-width: 608px;
+  max-width: 608px;
+  margin: 0 auto;
+}
+.header-container .mat-display-2 {
+  color: rgb(167, 240, 72);
+  line-height: 1.1;
+}
+.header-container .mat-display-1 {
+  line-height: 1.1;
+}
+
+.manage-container {
+  transform: translate(0, -25%);
+  min-width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+
+.manage-container h3 {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 99%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background: url(/assets/images/streetHDKostka.jpg);
+  background-position: bottom right repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  pointer-events: none;
+  text-transform: uppercase;
+  font-stretch: normal;
+  font-size: 150px;
+  letter-spacing: 0.09em;
+  font-weight: bold;
+  position: relative;
+  font-family: "New Tegomin", serif;
+  top: 0px;
+}
+
+@media all and (min-width: 1000px) {
+  .hero-container {
+    text-align: center;
+    height: 70vh;
+    line-height: 1.1;
+  }
+}
+
+@media all and (max-width: 615px) {
+  .header-container .mat-display-1 {
+    font-size: 1.1rem;
+    line-height: 1.1;
+  }
+  .header-container .mat-display-2 {
+    font-size: 3rem;
+    line-height: 1.1;
+  }
+}
+
+.home-section {
+  position: relative;
+  padding: 5px 20px;
+  /* transform: transale3d(0, 0, 0); */
+  /* transition: top 0.3s cubic-bezier(0.4, 0, 0.2, 1); */
+  text-align: center;
+  text-shadow: 1px 1px 2px pink;
+  padding-top: 50px;
+}
+.home-section .mat-subheading-3 {
+  text-transform: uppercase;
+}
+
+.card-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+
+.card-section mat-card {
+  height: 587px;
+  position: relative;
+  text-align: center;
+  margin: 1%;
+}
+
+.card-section mat-card-header h2 {
+  font-size: 34.54px;
+  letter-spacing: 0.25px;
+  line-height: 43px;
+  color: rgba(0, 0, 0, 0.87);
+  text-transform: uppercase;
+  font-weight: 500;
+  transform: translate(0%, 20%);
+}
+
+.card-section mat-card-header {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 34px;
+  height: 53px;
+  width: 100%;
+  background: linear-gradient(125deg, #fff8e1 0, rgba(255, 248, 225, 0.6) 100%);
+}
+
+.card-section mat-card-actions {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+button {
+  min-height: 40px;
+  min-width: 141px;
+}
+
+.owner-panel {
+  background: url(/assets/images/office.png) center center no-repeat;
+  background-size: cover;
+  height: calc(100vh - 500px);
+}
+
+:host /deep/ .mat-card-header-text {
+  margin: 0;
+}
+.tenant-panel {
+  background: url(/assets/images/tenant.jpg) center center no-repeat;
+  background-size: cover;
+  height: calc(100vh - 500px);
+}
+
+@media all and (max-width: 690px) {
+  .mat-display-3 h3,
+  .mat-display-3 {
+    display: none;
+  }
+}
