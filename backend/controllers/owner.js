@@ -1,5 +1,6 @@
 const Owner = require("../models/owner");
 const User = require("../models/user");
+const Agreement = require("../models/agreement");
 var mongoose = require("mongoose");
 const Obligation = require("../models/obligation");
 
@@ -83,8 +84,19 @@ exports.getOwnerById = (req, res, next) => {
 exports.getUserToAgreement = (req, res, next) => {
   User.findOne({ email: req.params.email }).then((user) => {
     res.status(200).json({
-      message: "notification fetched works",
+      message: "User fetched works",
       user: user,
+    });
+  });
+};
+
+exports.checkUserInAgreement = (req, res, next) => {
+  User.findOne({ email: req.params.email }).then((user) => {
+    Agreement.findOne({ tenant: user._id }).then((userChecked) => {
+      res.status(200).json({
+        message: "User in agreements fetched - error",
+        userChecked: userChecked,
+      });
     });
   });
 };

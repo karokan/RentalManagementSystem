@@ -23,11 +23,23 @@
             </mat-panel-description>
           </mat-expansion-panel-header>
           <p class="content-list">
+            <span>Imie: </span>
+            {{ agreement.tenantId.name }}
+          </p>
+          <p class="content-list">
+            <span>Nazwisko: </span>
+            {{ agreement.tenantId.lastName }}
+          </p>
+          <p class="content-list">
+            <span>Numer kontaktowy: </span>
+            {{ agreement.tenantId.phoneNumber }}
+          </p>
+          <p class="content-list">
             <span>Miasto najmowanego mieszkania: </span>
             {{ agreement.propertyId.city }}
           </p>
           <p class="content-list">
-            <span>Dokłady adress: </span> {{ agreement.propertyId.address }}
+            <span>Dokłady adres: </span> {{ agreement.propertyId.address }}
           </p>
           <p class="content-list">
             <span>Kod pocztowy: </span> {{ agreement.propertyId.postalCode }}

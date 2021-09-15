@@ -36,7 +36,7 @@
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-              <mat-label>Password</mat-label>
+              <mat-label>Hasło</mat-label>
               <input
                 name="password"
                 type="password"
@@ -45,7 +45,7 @@
                 required
                 password
                 matInput
-                placeholder="Password"
+                placeholder="Hasło"
                 value=""
               />
               <mat-error *ngIf="passwordInput.invalid">
@@ -56,10 +56,10 @@
             <br />
 
             <mat-form-field class="full-width">
-              <mat-label>Select Role</mat-label>
+              <mat-label>Wybierz Role w Systemie</mat-label>
               <mat-select name="role" ngModel required>
-                <mat-option value="tenant">Tenant</mat-option>
-                <mat-option value="owner">Owner</mat-option>
+                <mat-option value="tenant">Najemca</mat-option>
+                <mat-option value="owner">Właściciel</mat-option>
               </mat-select>
             </mat-form-field>
 
@@ -103,24 +103,24 @@
             <br />
 
             <mat-form-field class="full-width">
-              <mat-label>Select Role</mat-label>
+              <mat-label>Wybierz Role w Systemie</mat-label>
               <mat-select name="role" ngModel required>
-                <mat-option value="tenant">Tenant</mat-option>
-                <mat-option value="owner">Owner</mat-option>
+                <mat-option value="tenant">Najemca</mat-option>
+                <mat-option value="owner">Właściciel</mat-option>
               </mat-select>
             </mat-form-field>
 
             <br />
 
             <mat-form-field class="example-full-width">
-              <mat-label>Password</mat-label>
+              <mat-label>Hasło</mat-label>
               <input
                 type="password"
                 name="password"
                 ngModel
                 #passwordInput="ngModel"
                 matInput
-                placeholder="Password"
+                placeholder="Hasło"
                 value=""
                 required
               />
@@ -130,10 +130,10 @@
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-              <mat-label>Confirm Password</mat-label>
+              <mat-label>Potwierdź hasło</mat-label>
               <input
                 matInput
-                placeholder="Password"
+                placeholder="Hasło"
                 ngModel
                 name="confirmPassword"
                 type="password"

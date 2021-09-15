@@ -5,9 +5,9 @@ const Conversation = require("../models/conversation");
 
 const checkAuth = require("../middleware/check-auth");
 
-router.post("/", async (req, res) => {
+router.post("/", checkAuth, async (req, res) => {
   const newConversation = new Conversation({
-    members: [req.body.senderId, req.body.receiverId],
+    members: [req.userData.userId, req.body.receiverId],
   });
 
   try {
@@ -42,6 +42,22 @@ router.get("/:userId", async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+router.delete("/:userId", checkAuth, (req, res, next) => {
+  Conversation.find({ members: { $in: [req.params.userId] } }).then(
+    (conversation) => {
+      console.log(conversation);
+      Conversation.deleteOne({ _id: conversation[0]._id }).then((result) => {
+        console.log(result);
+        res.status(200).json({
+          message: "Conversation Deleted!",
+          conversation: conversation,
+          result: result,
+        });
+      });
+    }
+  );
 });
 
 module.exports = router;

@@ -81,20 +81,22 @@ io.on("connection", (socket) => {
   });
 
   //send and get messages
+
   socket.on("sendMessage", ({ senderId, receiverId, text }) => {
     const user = getUser(receiverId);
     io.emit("getNewUser", user);
-    io.to(user.socketId).emit("getMessage", {
-      senderId,
-      text,
-    });
+    if (user?.socketId) {
+      io.to(user.socketId).emit("getMessage", {
+        senderId,
+        text,
+      });
+    }
   });
 
   //When disconnect
   socket.on("disconnect", () => {
     console.log("a user disconnected!");
     removeUser(socket.id);
-    io.emit("getUsers", users);
   });
 });
 

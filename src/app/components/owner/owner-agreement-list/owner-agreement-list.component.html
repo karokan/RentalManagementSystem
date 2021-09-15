@@ -52,7 +52,11 @@
           >
           <!-- <a mat-button color="primary" [routerLink]="['../home']">EDYTUJ</a> -->
 
-          <button mat-button color="warn" (click)="onDelete(agreement.id)">
+          <button
+            mat-button
+            color="warn"
+            (click)="onDelete(agreement.id, agreement.tenantId._id)"
+          >
             USUŃ
           </button>
         </mat-action-row>

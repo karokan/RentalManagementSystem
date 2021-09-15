@@ -14,6 +14,7 @@ export class OwnerService {
   private properties: Property[] = [];
   private propertiesListUpdated = new Subject<Property[]>();
   private user: any;
+  private userChecked: any;
   private owner: any;
   private ownerObservable = new Subject();
 
@@ -251,10 +252,15 @@ export class OwnerService {
       });
   }
 
-  deleteAgreement(agreementId: string) {
+  deleteAgreement(agreementId: string, tenantId: string) {
     this.http
       .delete('http://localhost:3000/api/agreements/' + agreementId)
       .subscribe(() => {
+        this.http
+          .delete('http://localhost:3000/api/conversations/' + tenantId)
+          .subscribe((response) => {
+            console.log(response);
+          });
         const updatedAgreements = this.agreements.filter(
           (agreement) => agreement.id !== agreementId
         );
@@ -291,9 +297,6 @@ export class OwnerService {
     propertyId: any,
     tenantEmail: string
   ) {
-    // this.getUserToAgreement(tenantEmail);
-    // console.log('uset testowy ' + this.user);
-
     const agreement: Agreement = {
       id: null,
       dateStart: date.start,
@@ -304,28 +307,53 @@ export class OwnerService {
       propertyId: propertyId,
       tenantId: null,
     };
+
+    const conversation: any = {
+      senderId: null,
+      receiverId: null,
+    };
+
     this.http
       .get<{ message: string; user: any }>(
         'http://localhost:3000/api/owner/user/' + tenantEmail
       )
       .subscribe((userData) => {
         this.user = userData.user;
-        // this.userObservable.next(this.user);
         console.log('User fetched!');
         if (this.user === null) {
           alert('Błędny email, nie znaleziono najemcy');
         } else {
-          agreement.tenantId = this.user._id;
           this.http
-            .post<{ message: string; agreementId: string }>(
-              'http://localhost:3000/api/agreements',
-              agreement
+            .get<{ message: string; userChecked: any }>(
+              'http://localhost:3000/api/owner/userCheck/' + tenantEmail
             )
-            .subscribe((responseData) => {
-              const id = responseData.agreementId;
-              agreement.id = id;
-              // this.agreements.push(agreement);
-              // this.agreementsListUpdated.next([...this.agreements]);
+            .subscribe((userChecked) => {
+              this.userChecked = userChecked.userChecked;
+              console.log(userChecked);
+
+              if (this.userChecked !== null) {
+                alert('Użytkownik o tym emailu, już wynajmuję mieszkanie');
+              } else {
+                agreement.tenantId = this.user._id;
+                conversation.receiverId = this.user._id;
+                this.http
+                  .post<{ message: string; agreementId: string }>(
+                    'http://localhost:3000/api/agreements',
+                    agreement
+                  )
+                  .subscribe((responseData) => {
+                    this.http
+                      .post<{ message: string }>(
+                        'http://localhost:3000/api/conversations',
+                        conversation
+                      )
+                      .subscribe((response) => {
+                        console.log(response.message);
+                      });
+                    const id = responseData.agreementId;
+                    agreement.id = id;
+                  });
+              }
             });
         }
       });

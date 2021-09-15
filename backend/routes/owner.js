@@ -12,6 +12,12 @@ router.put("/ownerUpdate", checkAuth, OwnerController.updateOwner);
 
 router.get("/obligations", checkAuth, OwnerController.getOwnerObligations);
 
+router.get(
+  "/userCheck/:email",
+  checkAuth,
+  OwnerController.checkUserInAgreement
+);
+
 router.get("/user/:email", checkAuth, OwnerController.getUserToAgreement);
 
 router.get("/:ownerById", OwnerController.getOwnerById);

@@ -13,6 +13,7 @@ export class ChatService {
     console.log(userId);
 
     this.socket.emit('addUser', userId);
+
     this.socket.on('getUsers', (users) => {
       console.log(users);
     });

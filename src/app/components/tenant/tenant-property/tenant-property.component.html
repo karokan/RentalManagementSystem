@@ -19,7 +19,7 @@
         <span>Kod pocztowy: </span> {{ tenantAgreement.propertyId.postalCode }}
       </p>
       <p>
-        <span>Metraż lokalu: </span>
+        <span>Metraż lokalu (m2): </span>
         {{ tenantAgreement.propertyId.apartmentSize }}
       </p>
       <p>
@@ -30,7 +30,10 @@
         <span>Telefon: </span>
         {{ tenantAgreement.propertyId.managerPhoneNumber }}
       </p>
-      <p><span>Kod domofonu: </span> {{ tenantAgreement.rent }} zł</p>
+      <p>
+        <span>Kod domofonu: </span>
+        {{ tenantAgreement.propertyId.houseCode }}
+      </p>
       <p>
         <span>Numer konta do płatności: </span>
         {{ tenantAgreement.propertyId.bankAccountNumber }}

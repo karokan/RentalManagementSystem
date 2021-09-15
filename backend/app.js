@@ -74,8 +74,6 @@ cron.schedule("0 2 1 * *", () => {
     })
     .then((agreement) => {
       for (let a of agreement) {
-        console.log("Loop works");
-        console.log(a);
         const obligation = new Obligation({
           tenant: a.tenant,
           owner: a.owner._id,

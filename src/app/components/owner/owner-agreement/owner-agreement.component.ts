@@ -77,6 +77,7 @@ export class OwnerAgreementComponent implements OnInit, OnDestroy {
         this.agreement = this.ownerService.getAgreement(this.agreementId);
         this.changeNotifyForm.patchValue({
           email: this.agreement.tenantId.email,
+          Enabled: false,
         });
         // this.range.patchValue({
         //   start: new FormControl(new Date(2015, 4, 13)),
@@ -158,8 +159,7 @@ export class OwnerAgreementComponent implements OnInit, OnDestroy {
     const notifys = this.changeNotifyForm.value;
     console.log(notifys);
     console.log(this.range.value);
-    // const user = this.ownerService.getUserToAgreement(notifys.email);
-    // console.log(notifys);
+
     if (this.mode === 'create') {
       this.ownerService.createAgreement(
         this.range.value,

@@ -22,9 +22,9 @@ export class OwnerAgreementListComponent implements OnInit, OnDestroy {
         console.log(this.agreements);
       });
   }
-  onDelete(agreementId: string) {
+  onDelete(agreementId: string, tenantId: string) {
     console.log(agreementId);
-    this.ownerService.deleteAgreement(agreementId);
+    this.ownerService.deleteAgreement(agreementId, tenantId);
   }
 
   showButton() {
